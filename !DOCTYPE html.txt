@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adesione Piattaforma NabTop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .modal-card {
+      max-width: 620px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 24px;
+      border-top: 5px solid #00a896;
+    }
+    .promo-badge {
+      display: inline-block;
+      background-color: #28a745;
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+    h2 {
+      color: #0a3a75;
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+    .info-box {
+      background-color: #eef5fc;
+      border-left: 4px solid #0a3a75;
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.5;
+    }
+    .price-strike {
+      text-decoration: line-through;
+      color: #dc3545;
+    }
+    .price-free {
+      color: #28a745;
+      font-weight: bold;
+    }
+    
+    /* Sezione Termini e Privacy */
+    details.privacy-accordion {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 16px 0;
+      font-size: 0.88rem;
+    }
+    details.privacy-accordion summary {
+      font-weight: bold;
+      color: #0a3a75;
+      cursor: pointer;
+      outline: none;
+    }
+    details.privacy-accordion .privacy-content {
+      margin-top: 10px;
+      color: #495057;
+      line-height: 1.45;
+    }
+    details.privacy-accordion ul {
+      margin: 6px 0;
+      padding-left: 18px;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      flex: 1;
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .btn-accept {
+      background-color: #28a745;
+      color: white;
+    }
+    .btn-accept:hover {
+      background-color: #218838;
+    }
+    .btn-decline {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-decline:hover {
+      background-color: #5a6268;
+    }
+    .reminder-box {
+      display: none;
+      margin-top: 20px;
+      padding: 14px 16px;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+<div class="modal-card">
+  <span class="promo-badge">PROMOZIONE GRATUITA 2027</span>
+  <h2>Attivazione Trasferimento Dati a NabTop</h2>
+  
+  <p>Conferma il consenso per attivare il trasferimento automatico dal software gestionale <strong>Winfarm</strong> alla piattaforma <strong>NabTop</strong> dei dati relativi agli articoli trattati e alle giacenze di magazzino.</p>
+  
+  <div class="info-box">
+    <strong>Condizioni Economiche:</strong>
+    <ul>
+      <li><strong>Annualità 2027:</strong> Servizio <span class="price-free">GRATUITO</span> anziché <span class="price-strike">€ 365,00 + IVA</span> per l'intera annualità.</li>
+      <li><strong>Dal 1° Gennaio 2028:</strong> Il servizio diventerà a pagamento al canone annuale di <strong>€ 365,00 + IVA</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- Inizio Sezione Informativa Privacy e Condizioni -->
+  <details class="privacy-accordion">
+    <summary>Informativa Privacy e Garanzie di Trattamento Dati</summary>
+    <div class="privacy-content">
+      <p>Aderendo al servizio, la farmacia autorizza l'invio automatizzato delle sole informazioni relative alla disponibilità di articoli e servizi di magazzino.</p>
+      <ul>
+        <li><strong>Tutela dei Dati e Privacy:</strong> I dati trasmessi sono utilizzati unicamente per la verifica della disponibilità e non includono dati personali di acquisto o profilazione [1, 2].</li>
+        <li><strong>Assenza di Prezzi ed E-commerce:</strong> La piattaforma opera in maniera etica e neutrale, senza mostrare prezzi al pubblico, offerte commerciali o funzioni di vendita e-commerce [1, 3, 4].</li>
+        <li><strong>Geolocalizzazione Sicura:</strong> La consultazione da parte dell'utente finale avviene senza condivisione della posizione precisa o obbligo di registrazione [1-3].</li>
+      </ul>
+    </div>
+  </details>
+  <!-- Fine Sezione Informativa Privacy -->
+
+  <!-- Pulsanti d'azione -->
+  <div class="btn-container">
+    <button class="btn btn-accept" onclick="confirmSubscription()">SÌ, ADERISCO</button>
+    <button class="btn btn-decline" onclick="declineSubscription()">NO, NON INTENDO ADERIRE</button>
+  </div>
+
+  <!-- Promemoria in caso di conferma -->
+  <div id="subscriptionReminder" class="reminder-box">
+    <strong>Adesione registrata con successo!</strong><br>
+    Ti ricordiamo che l'integrazione rimarrà gratuita per tutto l'anno 2027. Potrai disattivare il servizio prima della scadenza del 31/12/2027 inviando semplicemente un'email a: <a href="mailto:info@nabtop.com" style="color: #155724; font-weight: bold;">info@nabtop.com</a>.
+  </div>
+</div>
+
+<script>
+  function confirmSubscription() {
+    document.getElementById('subscriptionReminder').style.display = 'block';
+    console.log("Stato: Consenso e accettazione privacy registrati (SÌ)");
+  }
+
+  function declineSubscription() {
+    document.getElementById('subscriptionReminder').style.display = 'none';
+    alert("Adesione non effettuata. Non verrà inviato alcun dato a NabTop.");
+    console.log("Stato: Adesione rifiutata (NO)");
+  }
+</script>
+
+</body>
+</html>
